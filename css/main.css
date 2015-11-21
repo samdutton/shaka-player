@@ -1,0 +1,161 @@
+body {
+  font-family: sans-serif;
+  font-weight: 300;
+}
+
+a {
+  color: #4183C4;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3d85c6;
+  text-decoration: underline;
+}
+
+h1 a {
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 1em;
+  word-break: break-word;
+}
+
+button {
+  background-color: #d84a38;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-family: sans-serif;
+  font-size: 0.8em;
+  margin: 0 0 1em 0;
+  padding: 0.5em 0.7em 0.6em 0.7em;
+}
+
+button:active {
+  background-color: #cf402f;
+}
+
+button:hover {
+  background-color: #cf402f;
+}
+
+button[disabled] {
+  color: #ccc;
+}
+
+button[disabled]:hover {
+  background-color: #d84a38;
+}
+
+code {
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+div#container {
+  margin: 0 auto 0 auto;
+  max-width: 40em;
+  padding: 1em 1.5em 1.3em 1.5em;
+}
+
+h1 {
+  border-bottom: 1px solid #ccc;
+  font-family: sans-serif;
+  font-weight: 500;
+  margin: 0 0 0.8em 0;
+  padding: 0 0 0.2em 0;
+}
+
+h2 {
+  color: #444;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.2em;
+  margin: 0 0 0.8em 0;
+}
+
+html {
+/* avoid annoying page width change
+when moving from the home page */
+overflow-y: scroll;
+}
+
+img {
+  border: none;
+  max-width: 100%;
+}
+
+input {
+  font-family: sans-serif;
+}
+
+input[type=radio] {
+  position: relative;
+  top: -1px;
+}
+
+ol {
+  padding: 0 0 0 20px;
+}
+
+p {
+  color: #444;
+  font-weight: 300;
+  line-height: 1.6em;
+}
+
+p.borderBelow {
+  border-bottom: 1px solid #eee;
+  padding: 0 0 20px 0;
+}
+
+select {
+  margin: 0 1em 1em 0;
+  position: relative;
+  top: -1px;
+}
+
+h1 span {
+  white-space: nowrap;
+}
+
+strong {
+  font-weight: 500;
+}
+
+ul {
+  padding: 0 0 0 20px;
+}
+
+video {
+  background: #222;
+  margin: 0 0 20px 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 650px) {
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  button:active {
+    background-color: darkRed;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  h1 {
+    font-size: 20px;
+  }
+}
