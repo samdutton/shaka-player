@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <!--
- Copyright 2015 Google Inc.
+Copyright 2015 Google Inc.
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-     http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 -->
 <html>
 <head>
@@ -32,10 +32,10 @@
 
   <link rel="icon" sizes="192x192" href="icon.png">
 <!--
-  <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700"
-    rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+rel="stylesheet" type="text/css">
 -->
-  <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/main.css">
 
 </head>
 
@@ -45,97 +45,89 @@
 
     <h1>Shaka Player</h1>
 
-    Stream type:
-    <select id="streamTypeList" onchange="app.onStreamTypeChange()">
-      <option value="dash">DASH</option>
-      <option value="http">HTTP</option>
-      <option value="offline">Offline</option>
-    </select>
+    <div id="setup">
 
-    Media URL:
-    <input id="mediaUrlInput" type="text" style="width: 98%;">
+      <div>
+        <label for="streamTypeList">Stream type:</label>
+        <select id="streamTypeList" onchange="app.onStreamTypeChange()">
+          <option value="dash">DASH</option>
+          <option value="http">HTTP</option>
+          <option value="offline">Offline</option>
+        </select>
+      </div>
 
-    Key system:
-    <select id="keySystemList">
-      <option value="org.w3.clearkey">org.w3.clearkey</option>
-      <option value="com.widevine.alpha">com.widevine.alpha</option>
-      <option value="net.bogus.keysystem">net.bogus.keysystem</option>
-      <option value="">(none)</option>
-    </select>
+      <div>
+        <label for="mediaUrlInput">Media URL:</label>
+        <input id="mediaUrlInput" type="text">
+      </div>
 
-    License server URL:
-    <input id="licenseServerUrlInput" type="text" style="width: 98%;">
+      <div>
+        <label for="keySystemList">Key system:</label>
+        <select id="keySystemList">
+          <option value="org.w3.clearkey">org.w3.clearkey</option>
+          <option value="com.widevine.alpha">com.widevine.alpha</option>
+          <option value="net.bogus.keysystem">net.bogus.keysystem</option>
+          <option value="">(none)</option>
+        </select>
+      </div>
 
-    Subtitles URL:
-    <input id="subtitlesUrlInput" type="text" style="width: 98%;">
+      <div>
+        <label for="licenseServerUrlInput">License server URL:</label>
+        <input id="licenseServerUrlInput" type="text">
+      </div>
 
-    Preferred language:
-    <input id="preferredLanguage">
+      <div>
+        <label for="subtitlesUrlInput">Subtitles URL:</label>
+        <input id="subtitlesUrlInput" type="text">
+      </div>
 
+      <div>
+        <label for="preferredLanguage">Preferred language:</label>
+        <input id="preferredLanguage" type="text">
+      </div>
 
-    Test manifest:
-    <select id="mpdList" onchange="app.onMpdChange()">
-      <option value="assets/angel_one.mpd">"Angel One" (TNG clip): multilingual, subtitles, VP8</option>
-      <option value="assets/car-20120827-manifest.mpd">"Car" (YT DASH test): MP4</option>
-      <option value="assets/car_cenc-20120827-manifest.mpd">"Car/CENC" (YT DASH EME test): MP4, ClearKey</option>
-      <option value="assets/feelings_vp9-20130806-manifest.mpd">"Feelings" (YT DASH test): VP9</option>
-      <option value="assets/feelings_audio_only-20130806-manifest.mpd">"Feelings" (YT DASH test): Audio only</option>
-      <option value="assets/car_segmenttemplate.mpd">"Car/SegmentTemplate" (Chromecast test): MP4 (no SIDX, video only), Widevine</option>
-      <option value="//download.tsi.telecom-paristech.fr/gpac/DASH_CONFORMANCE/TelecomParisTech/mp4-main-multi/mp4-main-multi-mpd-AV-NBS.mpd">"GPAC/SegmentList" (conformance test)</option>
-      <option value="assets/oops_cenc-20121114-signedlicenseurl-manifest.mpd">"Oops" (modified YT DASH EME test): MP4, multi-DRM</option>
-      <option value="assets/oops_cenc_pssh.mpd">"Oops" (modified YT DASH EME test): MP4, Widevine, PSSH in MPD</option>
-      <option value="//storage.googleapis.com/widevine-demo-media/sintel-1080p/dash.mpd">"Sintel" (1080p high bitrate test): MP4</option>
-      <option value="//storage.googleapis.com/widevine-demo-media/sintel-multicodec-4k/dash.mpd">"Sintel" (4k): MP4, VP8, VP9</option>
-      <option value="//storage.googleapis.com/widevine-demo-media/sintel-4k-widevine/sintel.mpd">"Sintel" (4k): MP4, Widevine</option>
-      <option value="">(custom)</option>
-    </select>
+      <div>
+        <label for="mpdList">Test manifest:</label>
+        <select id="mpdList" onchange="app.onMpdChange()">
+          <option value="assets/angel_one.mpd">"Angel One" (TNG clip): multilingual, subtitles, VP8</option>
+          <option value="assets/car-20120827-manifest.mpd">"Car" (YT DASH test): MP4</option>
+          <option value="assets/car_cenc-20120827-manifest.mpd">"Car/CENC" (YT DASH EME test): MP4, ClearKey</option>
+          <option value="assets/feelings_vp9-20130806-manifest.mpd">"Feelings" (YT DASH test): VP9</option>
+          <option value="assets/feelings_audio_only-20130806-manifest.mpd">"Feelings" (YT DASH test): Audio only</option>
+          <option value="assets/car_segmenttemplate.mpd">"Car/SegmentTemplate" (Chromecast test): MP4 (no SIDX, video only), Widevine</option>
+          <option value="//download.tsi.telecom-paristech.fr/gpac/DASH_CONFORMANCE/TelecomParisTech/mp4-main-multi/mp4-main-multi-mpd-AV-NBS.mpd">"GPAC/SegmentList" (conformance test)</option>
+          <option value="assets/oops_cenc-20121114-signedlicenseurl-manifest.mpd">"Oops" (modified YT DASH EME test): MP4, multi-DRM</option>
+          <option value="assets/oops_cenc_pssh.mpd">"Oops" (modified YT DASH EME test): MP4, Widevine, PSSH in MPD</option>
+          <option value="//storage.googleapis.com/widevine-demo-media/sintel-1080p/dash.mpd">"Sintel" (1080p high bitrate test): MP4</option>
+          <option value="//storage.googleapis.com/widevine-demo-media/sintel-multicodec-4k/dash.mpd">"Sintel" (4k): MP4, VP8, VP9</option>
+          <option value="//storage.googleapis.com/widevine-demo-media/sintel-4k-widevine/sintel.mpd">"Sintel" (4k): MP4, Widevine</option>
+          <option value="">(custom)</option>
+        </select>
+      </div>
 
-    Custom manifest URL:
-    <input id="manifestUrlInput" type="text" style="width: 98%;" oninput="app.onMpdCustom()">
+      <div>
+        <label for="manifestUrlInput">Custom manifest URL:</label>
+        <input id="manifestUrlInput" type="text" oninput="app.onMpdCustom()">
+      </div>
 
-    <button id="storeButton" onclick="app.storeStream();">Store stream offline</button>
+      <div>
+        <label for="wvLicenseServerUrlInput">Custom Widevine URL:</label>
+        <input id="wvLicenseServerUrlInput" type="text">
+      </div>
 
-    Custom WV license server URL:
-    <input id="wvLicenseServerUrlInput" type="text" style="width: 98%;">
+      <div>
+        <label for="offlineStreamList">Offline Content:</label>
+        <select id="offlineStreamList"></select>
+      </div>
 
-    Offline Content:
-    <select id="offlineStreamList"></select>
-    <button id="deleteButton" onclick="app.deleteStream();">Delete stream from storage</button>
+      <div>
+        <label>Offline stream:</label>
+        <button id="storeButton" onclick="app.storeStream();">Store</button>
+        <button id="loadButton" onclick="app.loadStream();">Load</button>
+        <button id="deleteButton" onclick="app.deleteStream();">Delete</button>
+      </div>
 
-    <button id="loadButton" onclick="app.loadStream();">Load stream</button>
-
-    Stream Info:
-    <div id="version"></div>
-
-
-    Enable trick play?:
-    <input id="trickPlayEnabled" class="streamOption" type="checkbox" onchange="app.onTrickPlayChange()">
-
-    Enable adaptation?
-    <input id="adaptationEnabled" class="streamOption" type="checkbox" checked onchange="app.onAdaptationChange()">
-
-    Available video tracks:
-    <select id="videoTracks" class="streamOption" onchange="app.onVideoChange()"></select>
-    <input type ="checkbox" id="cycleVideo" class="streamOption" onchange="app.cycleVideo()">
-
-    Available audio tracks:
-    <select id="audioTracks" class="streamOption" onchange="app.onAudioChange()"></select>
-    <input type ="checkbox" id="cycleAudio" class="streamOption" onchange="app.cycleAudio()">
-
-    Available text tracks:
-    <select id="textTracks" class="streamOption" onchange="app.onTextChange()"></select>
-
-    Enable subs?
-    <input id="textEnabled" class="streamOption" type="checkbox" onchange="app.onTextChange()">
-
-    Active resolution:
-    <div id="videoResDebug"></div>
-
-    Buffered ahead:
-    <div id="bufferedAheadDebug"></div>
-
-    Buffered behind:
-    <div id="bufferedBehindDebug"></div>
+    </div>
 
     <div id="videoContainer">
       <video id="video" autoplay></video>
@@ -152,6 +144,61 @@
       <input id="castButton" type="button">
       <input id="castConnectedButton" type="button">
       <input id="fullscreenButton" type="button">
+    </div>
+
+    <div id="info">
+
+      <div>
+        <input id="trickPlayEnabled" class="streamOption" type="checkbox" onchange="app.onTrickPlayChange()">
+        <label for="trickPlayEnabled">Enable trick play</label>
+      </div>
+
+      <div>
+        <input id="adaptationEnabled" class="streamOption" type="checkbox" checked onchange="app.onAdaptationChange()">
+        <label for="adaptationEnabled">Enable adaptation</label>
+      </div>
+
+      <div>
+        <label for="videoTracks">Video tracks:</label>
+        <select id="videoTracks" class="streamOption" onchange="app.onVideoChange()"></select>
+        <input id="cycleVideo" class="streamOption" type ="checkbox" onchange="app.cycleVideo()">
+        <label for="cycleVideo">Cycle video tracks</label>
+      </div>
+
+      <div>
+        <label for="audioTracks">Audio tracks:</label>
+        <select id="audioTracks" class="streamOption" onchange="app.onAudioChange()"></select>
+        <input id="cycleAudio" class="streamOption" type ="checkbox" onchange="app.cycleAudio()">
+        <label for="cycleAudio">Cycle audio tracks</label>
+      </div>
+
+      <div>
+        <label for="textTracks">Text tracks:</label>
+        <select id="textTracks" class="streamOption" onchange="app.onTextChange()"></select>
+        <input id="textEnabled" class="streamOption" type="checkbox" onchange="app.onTextChange()">
+        <label for="textEnabled">Enable subtitles</label>
+      </div>
+
+      <div>
+        <label for="videoResDebug">Active resolution:</label>
+        <span id="videoResDebug"></span>
+      </div>
+
+      <div>
+        <label for="bufferedAheadDebug">Buffered ahead:</label>
+        <span id="bufferedAheadDebug"></span>
+      </div>
+
+      <div>
+        <label for="bufferedBehindDebug">Buffered behind:</label>
+        <span id="bufferedBehindDebug"></span>
+      </div>
+
+      <div>
+        <label for="version">Stream Info:</label>
+        <span id="version"></span>
+      </div>
+
     </div>
 
   </div>

@@ -341,9 +341,9 @@ app.onMpdCustom = function() {
 app.checkMpdStorageStatus_ = function() {
   var mpd = document.getElementById('manifestUrlInput').value;
   if (app.offlineStreams_.indexOf(mpd) >= 0) {
-    app.updateStoreButton_(true, 'Stream already stored');
+    app.updateStoreButton_(true, 'Already stored');
   } else {
-    app.updateStoreButton_(false, 'Store stream offline');
+    app.updateStoreButton_(false, 'Store');
   }
 };
 
@@ -562,13 +562,13 @@ app.storeStream = function() {
         groups[groupId] = mediaUrl;
         app.setOfflineGroups_(groups);
         app.addOfflineStream_(mediaUrl, groupId);
-        app.updateStoreButton_(true, 'Stream already stored');
+        app.updateStoreButton_(true, 'Already stored');
         app.switchToOfflineStream_(groupId.toString());
       }
   ).catch(
       function(e) {
         console.error('Error storing stream', e);
-        app.updateStoreButton_(false, 'Store stream offline');
+        app.updateStoreButton_(false, 'Store');
       });
 };
 
