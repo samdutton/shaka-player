@@ -31,11 +31,9 @@ limitations under the License.
   <title>Shaka Player demo</title>
 
   <link rel="icon" sizes="192x192" href="icon.png">
-<!--
-<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700"
-rel="stylesheet" type="text/css">
--->
-<link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/main.css">
 
 </head>
 
@@ -50,9 +48,11 @@ rel="stylesheet" type="text/css">
       <div>
         <label for="streamTypeList">Stream type:</label>
         <select id="streamTypeList" onchange="app.onStreamTypeChange()">
-          <option value="dash">DASH</option>
-          <option value="http">HTTP</option>
-          <option value="offline">Offline</option>
+          <optgroup>
+            <option value="dash">DASH</option>
+            <option value="http">HTTP</option>
+            <option value="offline">Offline</option>
+          </optgroup>
         </select>
       </div>
 
