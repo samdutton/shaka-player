@@ -68,7 +68,7 @@ div#container {
   /* padding: 1em 1.5em 1.3em 1.5em; */
 }
 
-div#setup div {
+details#setup div {
   margin: 0 0 1.2em 0;
 }
 
@@ -106,9 +106,9 @@ input[type=radio] {
 
 input[type=text] {
   font-family: 'Roboto', sans-serif;
-  font-size: 13px;
-  padding: 3px 6px;
-  width: 312px;
+  font-size: 14px;
+  padding: 3px 2px 5px 6px;
+  width: 315px;
 }
 
 label {
@@ -139,8 +139,7 @@ p.borderBelow {
 }
 
 select {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  font-family: sans-serif;
   position: relative;
   top: -1px;
   width: 327px;
@@ -156,6 +155,12 @@ h1 span {
 
 strong {
   font-weight: 500;
+}
+
+summary {
+  cursor: pointer;
+  outline: none;
+  margin: 0 0 1em 0;
 }
 
 ul {
