@@ -68,7 +68,7 @@ div#container {
   /* padding: 1em 1.5em 1.3em 1.5em; */
 }
 
-details#setup div {
+details#setup div, details#info div {
   margin: 0 0 1.2em 0;
 }
 
@@ -99,6 +99,11 @@ img {
   max-width: 100%;
 }
 
+input[type=checkbox] {
+  position: relative;
+  top: -1px;
+}
+
 input[type=radio] {
   position: relative;
   top: -1px;
@@ -107,7 +112,7 @@ input[type=radio] {
 input[type=text] {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
-  padding: 3px 2px 5px 6px;
+  padding: 1px 2px 3px 6px;
   width: 315px;
 }
 
@@ -140,13 +145,12 @@ p.borderBelow {
 
 select {
   font-family: sans-serif;
+  height: 25px;
   position: relative;
   top: -1px;
   width: 327px;
-}
+  -webkit-appearance: menulist-button;
 
-div#info select {
-  margin: 0 0.5em 0 0;
 }
 
 h1 span {
@@ -159,6 +163,8 @@ strong {
 
 summary {
   cursor: pointer;
+  display: block;
+  font-family: 'Roboto Condensed', sans-serif;
   outline: none;
   margin: 0 0 1em 0;
 }
@@ -183,8 +189,13 @@ video {
   button:active {
     background-color: darkRed;
   }
+  details {
+    display: block;
+    margin: 0 0 1.5em 0;
+  }
   h1 {
     font-size: 22px;
+    margin: 0 0 1.5em 0;
   }
   input[type=text] {
     font-size: 16px;
@@ -196,7 +207,7 @@ video {
   }
   select {
     display: block;
-    padding: 6px;
+      margin: 0 1em 0.3em 0;
   }
 }
 
