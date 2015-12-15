@@ -114,6 +114,30 @@ app.streamState_ = {'manifest': '', 'time': 0};
  * Initializes the application.
  */
 app.init = function() {
+  var adaptationEnabledCheckbox =
+    document.getElementById('adaptationEnabled');
+  var audioTracksSelect = document.getElementById('audioTracks');
+  var cycleAudioCheckbox = document.getElementById('cycleAudio');
+  var cycleVideoCheckbox = document.getElementById('cycleVideo');
+  var mpdListSelect = document.getElementById('mpdList');
+  var streamTypeList = document.getElementById('streamTypeList');
+  var textEnabledCheckbox = document.getElementById('textEnabled');
+  var textTracksSelect = document.getElementById('textTracks');
+  var trickPlayEnabledCheckbox =
+    document.getElementById('trickPlayEnabled');
+  var videoTracksSelect = document.getElementById('videoTracks');
+
+  adaptationEnabledCheckbox.onchange = app.onAdaptationChange;
+  audioTracksSelect.onchange = app.onAudioChange;
+  cycleAudioCheckbox.onchange = app.cycleAudio;
+  cycleVideoCheckbox.onchange = app.cycleVideo;
+  mpdListSelect.onchange = app.onMpdChange;
+  streamTypeList.onchange = app.onStreamTypeChange;
+  textEnabledCheckbox.onchange = app.onTextChange;
+  textTracksSelect.onchange = app.onTextChange;
+  trickPlayEnabledCheckbox.onchange = app.onTrickPlayChange;
+  videoTracksSelect.onchange = app.onVideoChange;
+
   // Display the version number.
   document.getElementById('version').textContent = shaka.player.Player.version;
 
