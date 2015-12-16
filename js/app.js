@@ -597,8 +597,8 @@ app.storeStream = function() {
       }
   ).catch(
       function(e) {
-        console.error('Error storing stream', e);
-        app.updateStoreStatus_(false, 'Error storing');
+        console.error('Error storing', e);
+        app.updateStoreStatus_(false, 'Error: check console');
       });
 };
 

@@ -42,12 +42,13 @@ limitations under the License.
 
   <div id="container">
 
-
     <h1>Shaka Player</h1>
 
-    <p>This is a video player built to demonstrate Google's JavaScript <a href="http://shaka-player-demo.appspot.com/docs/tutorial-intro.html" title="Introduction to Dynamic Adaptive Streaming over HTTP">DASH</a> client, Shaka.</p>
+    <p>This video player demonstrates Google's JavaScript <a href="http://shaka-player-demo.appspot.com/docs/tutorial-intro.html" title="Introduction to Dynamic Adaptive Streaming over HTTP">DASH</a> client, Shaka.</p>
 
-    <p>
+    <p>To play video: open the Setup controls and tap the Load Stream button.</p>
+
+    <p class="borderBelow">
       <a href="https://shaka-player-demo.appspot.com/docs/index.html">API documentation</a> |
       <a href="https://github.com/google/shaka-player">Repo</a> |
       <a href="https://cdnjs.com/libraries/shaka-player">CDNJS</a> |
@@ -72,6 +73,28 @@ limitations under the License.
       </div>
 
       <div>
+        <label for="mpdList">Manifest:</label>
+        <select id="mpdList">
+          <option value="assets/angel_one.mpd">"Angel One" (TNG clip): multilingual, subtitles, VP8</option>
+          <option value="assets/car-20120827-manifest.mpd">"Car" (YT DASH test): MP4</option>
+          <option value="assets/car_cenc-20120827-manifest.mpd">"Car/CENC" (YT DASH EME test): MP4, ClearKey</option>
+          <option value="assets/feelings_vp9-20130806-manifest.mpd">"Feelings" (YT DASH test): VP9</option>
+          <option value="assets/feelings_audio_only-20130806-manifest.mpd">"Feelings" (YT DASH test): Audio only</option>
+          <option value="assets/car_segmenttemplate.mpd">"Car/SegmentTemplate" (Chromecast test): MP4 (no SIDX, video only), Widevine</option>
+          <option value="//download.tsi.telecom-paristech.fr/gpac/DASH_CONFORMANCE/TelecomParisTech/mp4-main-multi/mp4-main-multi-mpd-AV-NBS.mpd">"GPAC/SegmentList" (conformance test)</option>
+          <option value="assets/oops_cenc-20121114-signedlicenseurl-manifest.mpd">"Oops" (modified YT DASH EME test): MP4, multi-DRM</option>
+          <option value="assets/oops_cenc_pssh.mpd">"Oops" (modified YT DASH EME test): MP4, Widevine, PSSH in MPD</option>
+          <option value="//storage.googleapis.com/widevine-demo-media/sintel-1080p/dash.mpd">"Sintel" (1080p high bitrate test): MP4</option>
+          <option value="//storage.googleapis.com/widevine-demo-media/sintel-multicodec-4k/dash.mpd">"Sintel" (4k): MP4, VP8, VP9</option>
+          <option value="//storage.googleapis.com/widevine-demo-media/sintel-4k-widevine/sintel.mpd">"Sintel" (4k): MP4, Widevine</option>
+          <option value="">(custom)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="manifestUrlInput">Custom manifest URL:</label>
+        <input id="manifestUrlInput" type="text" oninput="app.onMpdCustom()">
+      </div>      <div>
         <label for="keySystemList">Key system:</label>
         <select id="keySystemList">
           <option value="org.w3.clearkey">org.w3.clearkey</option>
@@ -97,30 +120,6 @@ limitations under the License.
       </div>
 
       <div>
-        <label for="mpdList">Test manifest:</label>
-        <select id="mpdList">
-          <option value="assets/angel_one.mpd">"Angel One" (TNG clip): multilingual, subtitles, VP8</option>
-          <option value="assets/car-20120827-manifest.mpd">"Car" (YT DASH test): MP4</option>
-          <option value="assets/car_cenc-20120827-manifest.mpd">"Car/CENC" (YT DASH EME test): MP4, ClearKey</option>
-          <option value="assets/feelings_vp9-20130806-manifest.mpd">"Feelings" (YT DASH test): VP9</option>
-          <option value="assets/feelings_audio_only-20130806-manifest.mpd">"Feelings" (YT DASH test): Audio only</option>
-          <option value="assets/car_segmenttemplate.mpd">"Car/SegmentTemplate" (Chromecast test): MP4 (no SIDX, video only), Widevine</option>
-          <option value="//download.tsi.telecom-paristech.fr/gpac/DASH_CONFORMANCE/TelecomParisTech/mp4-main-multi/mp4-main-multi-mpd-AV-NBS.mpd">"GPAC/SegmentList" (conformance test)</option>
-          <option value="assets/oops_cenc-20121114-signedlicenseurl-manifest.mpd">"Oops" (modified YT DASH EME test): MP4, multi-DRM</option>
-          <option value="assets/oops_cenc_pssh.mpd">"Oops" (modified YT DASH EME test): MP4, Widevine, PSSH in MPD</option>
-          <option value="//storage.googleapis.com/widevine-demo-media/sintel-1080p/dash.mpd">"Sintel" (1080p high bitrate test): MP4</option>
-          <option value="//storage.googleapis.com/widevine-demo-media/sintel-multicodec-4k/dash.mpd">"Sintel" (4k): MP4, VP8, VP9</option>
-          <option value="//storage.googleapis.com/widevine-demo-media/sintel-4k-widevine/sintel.mpd">"Sintel" (4k): MP4, Widevine</option>
-          <option value="">(custom)</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="manifestUrlInput">Custom manifest URL:</label>
-        <input id="manifestUrlInput" type="text" oninput="app.onMpdCustom()">
-      </div>
-
-      <div>
         <label for="wvLicenseServerUrlInput">Custom Widevine URL:</label>
         <input id="wvLicenseServerUrlInput" type="text">
       </div>
@@ -140,14 +139,13 @@ limitations under the License.
     </details>
 
     <details id="info">
-      <summary>Info</summary>
+      <summary>Video Info</summary>
 
       <div>
-        <input id="trickPlayEnabled" class="streamOption" type="checkbox">
-        <label for="trickPlayEnabled">Enable trick play</label>
-      </div>
-
-      <div>
+      <span id="trickPlay">
+          <input id="trickPlayEnabled" class="streamOption" type="checkbox">
+          <label for="trickPlayEnabled">Enable trick play</label>
+        </span>
         <input id="adaptationEnabled" class="streamOption" type="checkbox" checked>
         <label for="adaptationEnabled">Enable adaptation</label>
       </div>
