@@ -46,7 +46,7 @@ limitations under the License.
 
     <p>This video player demonstrates Google's JavaScript <a href="http://shaka-player-demo.appspot.com/docs/tutorial-intro.html" title="Introduction to Dynamic Adaptive Streaming over HTTP">DASH</a> client, Shaka.</p>
 
-    <p>To play video: open the Setup controls and tap the Load Stream button.</p>
+    <p>Tap the Play Stream button to play a video.</p>
 
     <p class="borderBelow">
       <a href="https://shaka-player-demo.appspot.com/docs/index.html">API documentation</a> |
@@ -95,134 +95,135 @@ limitations under the License.
         <label for="manifestUrlInput">Custom manifest URL:</label>
         <input id="manifestUrlInput" type="text" oninput="app.onMpdCustom()">
       </div>      <div>
-        <label for="keySystemList">Key system:</label>
-        <select id="keySystemList">
-          <option value="org.w3.clearkey">org.w3.clearkey</option>
-          <option value="com.widevine.alpha">com.widevine.alpha</option>
-          <option value="net.bogus.keysystem">net.bogus.keysystem</option>
-          <option value="">(none)</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="licenseServerUrlInput">License server URL:</label>
-        <input id="licenseServerUrlInput" type="text">
-      </div>
-
-      <div>
-        <label for="subtitlesUrlInput">Subtitles URL:</label>
-        <input id="subtitlesUrlInput" type="text">
-      </div>
-
-      <div>
-        <label for="preferredLanguage">Preferred language:</label>
-        <input id="preferredLanguage" type="text">
-      </div>
-
-      <div>
-        <label for="wvLicenseServerUrlInput">Custom Widevine URL:</label>
-        <input id="wvLicenseServerUrlInput" type="text">
-      </div>
-
-      <div>
-        <label for="offlineStreamList">Offline Content:</label>
-        <select id="offlineStreamList"></select>
-      </div>
-
-      <div>
-        <button id="loadButton">Load Stream</button>
-        <button id="storeButton">Store Offline</button>
-        <button id="deleteButton">Delete Offline</button>
-        <span id="storeStatus"></span>
-      </div>
-
-    </details>
-
-    <details id="info">
-      <summary>Video Info</summary>
-
-      <div>
-      <span id="trickPlay">
-          <input id="trickPlayEnabled" class="streamOption" type="checkbox">
-          <label for="trickPlayEnabled">Enable trick play</label>
-        </span>
-        <input id="adaptationEnabled" class="streamOption" type="checkbox" checked>
-        <label for="adaptationEnabled">Enable adaptation</label>
-      </div>
-
-      <div>
-        <label for="videoTracks">Video tracks:</label>
-        <select id="videoTracks" class="streamOption"></select>
-        <input id="cycleVideo" class="streamOption" type ="checkbox">
-        <label for="cycleVideo">Cycle video tracks</label>
-      </div>
-
-      <div>
-        <label for="audioTracks">Audio tracks:</label>
-        <select id="audioTracks" class="streamOption"></select>
-        <input id="cycleAudio" class="streamOption" type ="checkbox">
-        <label for="cycleAudio">Cycle audio tracks</label>
-      </div>
-
-      <div>
-        <label for="textTracks">Text tracks:</label>
-        <select id="textTracks" class="streamOption"></select>
-        <input id="textEnabled" class="streamOption" type="checkbox">
-        <label for="textEnabled">Enable subtitles</label>
-      </div>
-
-      <div>
-        <label for="videoResDebug">Active resolution:</label>
-        <span id="videoResDebug"></span>
-      </div>
-
-      <div>
-        <label for="bufferedAheadDebug">Buffered ahead:</label>
-        <span id="bufferedAheadDebug"></span>
-      </div>
-
-      <div>
-        <label for="bufferedBehindDebug">Buffered behind:</label>
-        <span id="bufferedBehindDebug"></span>
-      </div>
-
-      <div>
-        <label for="version">Stream Info:</label>
-        <span id="version"></span>
-      </div>
-
-    </details>
-
-    <div id="videoContainer">
-      <video id="video" poster="//shaka-player-demo.appspot.com/assets/poster.jpg" autoplay></video>
-      <div id="bufferingSpinner"></div>
-      <div id="videoControlsEnclosure">
-        <div id="videoControls">
-          <input id="playButton" type="button">
-          <input id="pauseButton" type="button">
-          <input id="seekBar" type="range" step="any" min="0" max="1">
-          <input id="rewindButton" type="button">
-          <div id="currentTime">0:00</div>
-          <input id="fastForwardButton" type="button">
-          <input id="muteButton" type="button">
-          <input id="unmuteButton" type="button">
-          <input id="volumeBar" type="range" step="any" min="0" max="1">
-          <input id="castButton" type="button">
-          <input id="castConnectedButton" type="button">
-          <input id="fullscreenButton" type="button">
-        </div>
-      </div>
+      <label for="keySystemList">Key system:</label>
+      <select id="keySystemList">
+        <option value="org.w3.clearkey">org.w3.clearkey</option>
+        <option value="com.widevine.alpha">com.widevine.alpha</option>
+        <option value="net.bogus.keysystem">net.bogus.keysystem</option>
+        <option value="">(none)</option>
+      </select>
     </div>
 
+    <div>
+      <label for="licenseServerUrlInput">License server URL:</label>
+      <input id="licenseServerUrlInput" type="text">
+    </div>
+
+    <div>
+      <label for="subtitlesUrlInput">Subtitles URL:</label>
+      <input id="subtitlesUrlInput" type="text">
+    </div>
+
+    <div>
+      <label for="preferredLanguage">Preferred language:</label>
+      <input id="preferredLanguage" type="text">
+    </div>
+
+    <div>
+      <label for="wvLicenseServerUrlInput">Custom Widevine URL:</label>
+      <input id="wvLicenseServerUrlInput" type="text">
+    </div>
+
+    <div>
+      <label for="offlineStreamList">Offline Content:</label>
+      <select id="offlineStreamList"></select>
+    </div>
+
+  </details>
+
+
+  <details id="info">
+    <summary>Info</summary>
+
+    <div>
+      <span id="trickPlay">
+        <input id="trickPlayEnabled" class="streamOption" type="checkbox">
+        <label for="trickPlayEnabled">Enable trick play</label>
+      </span>
+      <input id="adaptationEnabled" class="streamOption" type="checkbox" checked>
+      <label for="adaptationEnabled">Enable adaptation</label>
+    </div>
+
+    <div>
+      <label for="videoTracks">Video tracks:</label>
+      <select id="videoTracks" class="streamOption"></select>
+      <input id="cycleVideo" class="streamOption" type ="checkbox">
+      <label for="cycleVideo">Cycle video tracks</label>
+    </div>
+
+    <div>
+      <label for="audioTracks">Audio tracks:</label>
+      <select id="audioTracks" class="streamOption"></select>
+      <input id="cycleAudio" class="streamOption" type ="checkbox">
+      <label for="cycleAudio">Cycle audio tracks</label>
+    </div>
+
+    <div>
+      <label for="textTracks">Text tracks:</label>
+      <select id="textTracks" class="streamOption"></select>
+      <input id="textEnabled" class="streamOption" type="checkbox">
+      <label for="textEnabled">Enable subtitles</label>
+    </div>
+
+    <div>
+      <label for="videoResDebug">Active resolution:</label>
+      <span id="videoResDebug"></span>
+    </div>
+
+    <div>
+      <label for="bufferedAheadDebug">Buffered ahead:</label>
+      <span id="bufferedAheadDebug"></span>
+    </div>
+
+    <div>
+      <label for="bufferedBehindDebug">Buffered behind:</label>
+      <span id="bufferedBehindDebug"></span>
+    </div>
+
+    <div>
+      <label for="version">Stream Info:</label>
+      <span id="version"></span>
+    </div>
+
+  </details>
+
+  <div>
+  <button id="loadButton">Play Stream</button>
+    <button id="storeButton">Store Offline</button>
+    <button id="deleteButton">Delete Offline</button>
+    <span id="storeStatus"></span>
   </div>
 
-  <script src="js/sender.js"></script>
-  <script src="js/load.js"></script>
-  <script src="js/controls.js"></script>
-  <script src="js/appUtils.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/third_party/cast_sender.js"></script>
-  <script src="js/third_party/ga.js"></script>
+  <div id="videoContainer">
+    <video id="video" poster="//shaka-player-demo.appspot.com/assets/poster.jpg" autoplay></video>
+    <div id="bufferingSpinner"></div>
+    <div id="videoControlsEnclosure">
+      <div id="videoControls">
+        <input id="playButton" type="button">
+        <input id="pauseButton" type="button">
+        <input id="seekBar" type="range" step="any" min="0" max="1">
+        <input id="rewindButton" type="button">
+        <div id="currentTime">0:00</div>
+        <input id="fastForwardButton" type="button">
+        <input id="muteButton" type="button">
+        <input id="unmuteButton" type="button">
+        <input id="volumeBar" type="range" step="any" min="0" max="1">
+        <input id="castButton" type="button">
+        <input id="castConnectedButton" type="button">
+        <input id="fullscreenButton" type="button">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/sender.js"></script>
+<script src="js/load.js"></script>
+<script src="js/controls.js"></script>
+<script src="js/appUtils.js"></script>
+<script src="js/app.js"></script>
+<script src="js/third_party/cast_sender.js"></script>
+<script src="js/third_party/ga.js"></script>
 
 </body>
 </html>

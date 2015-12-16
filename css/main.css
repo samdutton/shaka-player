@@ -47,10 +47,14 @@ button {
   border-radius: 2px;
   color: white;
   font-family: Roboto, sans-serif;
-  font-size: 0.8em;
-  margin: 0 0.5em 1em 0;
-  padding: 0.5em 0 0.6em 0;
+  font-size: 0.9em;
+  margin: 0 1em 2em 0;
+  padding: 0.5em 0 0.7em 0;
   width: 7.5em;
+}
+
+button:last-of-type {
+  margin: 0 0 1em 0;
 }
 
 button:active {
@@ -77,11 +81,10 @@ code {
 div#container {
   margin: 0 auto 0 auto;
   max-width: 40em;
-  /* padding: 1em 1.5em 1.3em 1.5em; */
 }
 
 details:last-of-type {
-  margin: 0 0 2em 0;
+  margin: 0 0 1.5em 0;
 }
 
 details#setup div, details#info div {
@@ -156,7 +159,7 @@ p {
 
 p.borderBelow {
   border-bottom: 1px solid #eee;
-  margin: 0 0 2em 0;
+  margin: 0 0 1.5em 0;
   padding: 0 0 1.7em 0;
 }
 
@@ -166,8 +169,7 @@ select {
   position: relative;
   top: -1px;
   width: 327px;
-  -moz-appearance: menulist-button;
-  -webkit-appearance: menulist-button;
+  -webkit-appearance: menulist-button; /*csslint compatible-vendor-prefixes:false */
 }
 
 span#storeStatus {
@@ -216,20 +218,19 @@ video {
 
 @media screen and (max-width: 550px) {
   button {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
-    margin: 0 1em 0.5em 0;
+    margin: 0 0.6em 0 0;
     padding: 11px 0 10px 0;
   }
   button:active {
     background-color: darkRed;
   }
   details {
-    display: block;
-    margin: 1.5em 0 2em 0;
+    margin: 2em 0 1.5em 0;
   }
   details:last-of-type {
-    margin: 1.5em 0 2.5em 0;
+    margin: 0 0 2em 0;
   }
 
   h1 {
