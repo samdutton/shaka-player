@@ -114,29 +114,35 @@ app.streamState_ = {'manifest': '', 'time': 0};
  * Initializes the application.
  */
 app.init = function() {
-  var adaptationEnabledCheckbox =
+  app.adaptationEnabledCheckbox_ =
     document.getElementById('adaptationEnabled');
-  var audioTracksSelect = document.getElementById('audioTracks');
-  var cycleAudioCheckbox = document.getElementById('cycleAudio');
-  var cycleVideoCheckbox = document.getElementById('cycleVideo');
-  var mpdListSelect = document.getElementById('mpdList');
-  var streamTypeList = document.getElementById('streamTypeList');
-  var textEnabledCheckbox = document.getElementById('textEnabled');
-  var textTracksSelect = document.getElementById('textTracks');
-  var trickPlayEnabledCheckbox =
-    document.getElementById('trickPlayEnabled');
-  var videoTracksSelect = document.getElementById('videoTracks');
+  app.audioTracksSelect_ = document.getElementById('audioTracks');
+  app.cycleAudioCheckbox_ = document.getElementById('cycleAudio');
+  app.cycleVideoCheckbox_ = document.getElementById('cycleVideo');
+  app.deleteButton_ = document.getElementById('deleteButton');
+  app.loadButton_ = document.getElementById('loadButton');
+  app.mpdListSelect_ = document.getElementById('mpdList');
+  app.storeButton_ = document.getElementById('storeButton');
+  app.storeStatus_ = document.getElementById('storeStatus');
+  app.streamTypeList_ = document.getElementById('streamTypeList');
+  app.textEnabledCheckbox_ = document.getElementById('textEnabled');
+  app.textTracksSelect_ = document.getElementById('textTracks');
+  app.trickPlayEnabledCheckbox_ = document.getElementById('trickPlayEnabled');
+  app.videoTracksSelect_ = document.getElementById('videoTracks');
 
-  adaptationEnabledCheckbox.onchange = app.onAdaptationChange;
-  audioTracksSelect.onchange = app.onAudioChange;
-  cycleAudioCheckbox.onchange = app.cycleAudio;
-  cycleVideoCheckbox.onchange = app.cycleVideo;
-  mpdListSelect.onchange = app.onMpdChange;
-  streamTypeList.onchange = app.onStreamTypeChange;
-  textEnabledCheckbox.onchange = app.onTextChange;
-  textTracksSelect.onchange = app.onTextChange;
-  trickPlayEnabledCheckbox.onchange = app.onTrickPlayChange;
-  videoTracksSelect.onchange = app.onVideoChange;
+  app.adaptationEnabledCheckbox_.onchange = app.onAdaptationChange;
+  app.audioTracksSelect_.onchange = app.onAudioChange;
+  app.cycleAudioCheckbox_.onchange = app.cycleAudio;
+  app.cycleVideoCheckbox_.onchange = app.cycleVideo;
+  app.deleteButton_.onclick = app.deleteStream;
+  app.loadButton_.onclick = app.loadStream;
+  app.mpdListSelect_.onchange = app.onMpdChange;
+  app.storeButton_.onclick = app.storeStream;
+  app.streamTypeList_.onchange = app.onStreamTypeChange;
+  app.textEnabledCheckbox_.onchange = app.onTextChange;
+  app.textTracksSelect_.onchange = app.onTextChange;
+  app.trickPlayEnabledCheckbox_.onchange = app.onTrickPlayChange;
+  app.videoTracksSelect_.onchange = app.onVideoChange;
 
   // Display the version number.
   document.getElementById('version').textContent = shaka.player.Player.version;
@@ -365,9 +371,9 @@ app.onMpdCustom = function() {
 app.checkMpdStorageStatus_ = function() {
   var mpd = document.getElementById('manifestUrlInput').value;
   if (app.offlineStreams_.indexOf(mpd) >= 0) {
-    app.updateStoreButton_(true, 'Already stored');
+    app.updateStoreStatus_(true, 'Already stored');
   } else {
-    app.updateStoreButton_(false, 'Store');
+    app.updateStoreStatus_(false, '');
   }
 };
 
@@ -562,7 +568,7 @@ app.deleteStream = function() {
  * Stores a DASH stream for offline playback.
  */
 app.storeStream = function() {
-  app.updateStoreButton_(true, 'Storing...');
+  app.updateStoreStatus_(true, 'Storing...');
 
   var mediaUrl = document.getElementById('manifestUrlInput').value;
   var preferredLanguage = document.getElementById('preferredLanguage').value;
@@ -586,13 +592,13 @@ app.storeStream = function() {
         groups[groupId] = mediaUrl;
         app.setOfflineGroups_(groups);
         app.addOfflineStream_(mediaUrl, groupId);
-        app.updateStoreButton_(true, 'Already stored');
+        app.updateStoreStatus_(true, 'Already stored');
         app.switchToOfflineStream_(groupId.toString());
       }
   ).catch(
       function(e) {
         console.error('Error storing stream', e);
-        app.updateStoreButton_(false, 'Store');
+        app.updateStoreStatus_(false, 'Error storing');
       });
 };
 
@@ -603,7 +609,7 @@ app.storeStream = function() {
  * @private
  */
 app.progressEventHandler_ = function(e) {
-  app.updateStoreButton_(true, e.detail.toFixed(2) + ' percent stored');
+  app.updateStoreStatus_(true, e.detail.toFixed(2) + '% stored');
 };
 
 
@@ -641,10 +647,9 @@ app.setOfflineGroups_ = function(groups) {
  * @param {string} text Text the button should display.
  * @private
  */
-app.updateStoreButton_ = function(disabled, text) {
-  var storeButton = document.getElementById('storeButton');
-  storeButton.disabled = disabled;
-  storeButton.textContent = text;
+app.updateStoreStatus_ = function(isDisabled, text) {
+  this.storeButton_.disabled = isDisabled;
+  this.storeStatus_.textContent = text;
 };
 
 

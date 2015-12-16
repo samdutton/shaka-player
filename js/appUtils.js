@@ -94,10 +94,10 @@ appUtils.getVideoResDebug = function(video) {
       }
 
       // Resize the video container to match the aspect ratio of the media.
-      var h = 576;
-      var w = h * aspect;
-      video.parentElement.style.width = w.toString() + 'px';
-      video.parentElement.style.height = h.toString() + 'px';
+      // var h = 576;
+      // var w = h * aspect;
+      // video.parentElement.style.width = w.toString() + 'px';
+      // video.parentElement.style.height = h.toString() + 'px';
 
       appUtils.aspectRatioSet_ = true;
     }

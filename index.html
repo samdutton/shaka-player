@@ -34,6 +34,7 @@ limitations under the License.
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/controls.css">
 
 </head>
 
@@ -41,7 +42,17 @@ limitations under the License.
 
   <div id="container">
 
+
     <h1>Shaka Player</h1>
+
+    <p>This is a video player built to demonstrate Google's JavaScript <a href="http://shaka-player-demo.appspot.com/docs/tutorial-intro.html" title="Introduction to Dynamic Adaptive Streaming over HTTP">DASH</a> client, Shaka.</p>
+
+    <p>
+      <a href="https://shaka-player-demo.appspot.com/docs/index.html">API documentation</a> |
+      <a href="https://github.com/google/shaka-player">Repo</a> |
+      <a href="https://cdnjs.com/libraries/shaka-player">CDNJS</a> |
+      <a href="ttps://www.npmjs.com/package/shaka-player">NPM</a>
+    </p>
 
     <details id="setup">
       <summary>Setup</summary>
@@ -120,10 +131,10 @@ limitations under the License.
       </div>
 
       <div>
-        <label>Offline stream:</label>
-        <button id="storeButton" onclick="app.storeStream();">Store</button>
-        <button id="loadButton" onclick="app.loadStream();">Load</button>
-        <button id="deleteButton" onclick="app.deleteStream();">Delete</button>
+        <button id="loadButton">Load Stream</button>
+        <button id="storeButton">Store Offline</button>
+        <button id="deleteButton">Delete Offline</button>
+        <span id="storeStatus"></span>
       </div>
 
     </details>
