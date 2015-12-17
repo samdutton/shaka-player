@@ -54,7 +54,7 @@ button {
 }
 
 button:last-of-type {
-  margin: 0 0 1em 0;
+  margin: 0 1em 1em 0;
 }
 
 button:active {
