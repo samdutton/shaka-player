@@ -532,7 +532,7 @@ app.resetCycleState_ = function(tracksId, checkboxId, isVideo) {
 app.deleteStream = function() {
   var deleteButton = document.getElementById('deleteButton');
   deleteButton.disabled = true;
-  deleteButton.textContent = 'Deleting stream...';
+  this.storeStatus_.textContent = 'Deleting stream...';
 
   var offlineList = document.getElementById('offlineStreamList');
   var groupId = parseInt(offlineList.value, 10);
@@ -552,14 +552,14 @@ app.deleteStream = function() {
         delete groups[groupId];
         app.setOfflineGroups_(groups);
         app.removeOfflineStream_(groupId);
-        deleteButton.textContent = 'Delete stream from storage';
+        this.storeStatus_.textContent = 'Delete stream from storage';
         app.onStreamTypeChange();
         app.onMpdChange();
       }
   ).catch(
       function(e) {
         console.error('Error deleting stream', e);
-        deleteButton.textContent = 'Delete stream from storage';
+        this.storeStatus_.textContent = 'Delete stream from storage';
       });
 };
 
