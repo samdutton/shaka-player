@@ -91,6 +91,12 @@ details#setup div, details#info div {
   margin: 0 0 1.2em 0;
 }
 
+div#storeStatus {
+  display: inline-block;
+  margin: 0 0 1em 0;
+}
+
+
 h1 {
   border-bottom: 1px solid #ccc;
   font-family: 'Roboto Condensed', sans-serif;
@@ -172,11 +178,6 @@ select {
   -webkit-appearance: menulist-button; /*csslint compatible-vendor-prefixes:false */
 }
 
-span#storeStatus {
-  display: inline-block;
-  margin: 0 0 1em 0;
-}
-
 span#trickPlay {
   display: inline-block;
   left: -3px;
@@ -223,30 +224,42 @@ video {
     margin: 0 0.6em 0.8em 0;
     padding: 11px 0 10px 0;
   }
+
+  button:last-of-type {
+    margin: 00;
+  }
+
   button:active {
     background-color: darkRed;
   }
+
   details {
     margin: 2em 0 1.5em 0;
   }
-  details:last-of-type {
-    margin: 0 0 2em 0;
+
+  div#storeStatus {
+    display: block;
+    margin: 0 0 1em 0;
   }
 
   h1 {
     font-size: 22px;
     margin: 0 0 1.5em 0;
   }
+
   input[type=checkbox] {
     top: 2px;
   }
+
   input[type=text] {
     font-size: 16px;
   }
+
   label {
     font-weight: 500;
     margin: 0 0 0.4em 0;
   }
+
   select {
     display: block;
     margin: 0 1em 0.3em 0;
@@ -256,7 +269,13 @@ video {
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 400px) {
+  button {
+    font-size: 13px;
+    margin: 0 0.4em 1em 0;
+    padding: 5px 0 7px 0;
+  }
+
   h1 {
     font-size: 20px;
   }
