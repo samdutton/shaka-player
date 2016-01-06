@@ -144,6 +144,7 @@ app.init = function() {
   app.trickPlayEnabledCheckbox_.onchange = app.onTrickPlayChange;
   app.videoTracksSelect_.onchange = app.onVideoChange;
 
+
   // Display the version number.
   document.getElementById('version').textContent = shaka.player.Player.version;
 
@@ -277,6 +278,10 @@ app.init = function() {
     app.resetCycleState_('videoTracks', 'cycleVideo', true);
     app.resetCycleState_('audioTracks', 'cycleAudio', false);
   });
+
+  if (!shaka.player.Player.isBrowserSupported()) {
+    alert('Your browser does not support Shaka. \n\nPlease try Google Chrome.');
+  }
 };
 
 
