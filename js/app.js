@@ -280,7 +280,8 @@ app.init = function() {
   });
 
   if (!shaka.player.Player.isBrowserSupported()) {
-    alert('Your browser does not support Shaka. \n\nPlease try Google Chrome.');
+    alert('This browser does not support Shaka. \n\nPlease try Google Chrome.');
+    app.updateStoreStatus_(false, 'This browser does not support Shaka.');
   }
 };
 
