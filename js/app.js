@@ -162,7 +162,7 @@ app.init = function() {
   try {
     shaka.polyfill.installAll();
   } catch (e) {
-    console.log('Error installing polyfills: ', e);
+    console.error('Error installing polyfills: ', e);
   }
 
   if (!shaka.player.Player.isBrowserSupported()) {
