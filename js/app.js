@@ -161,6 +161,12 @@ app.init = function() {
 
   shaka.polyfill.installAll();
 
+  if (!shaka.player.Player.isBrowserSupported()) {
+    alert('This browser does not support Shaka. \n\nPlease try Google Chrome.');
+    app.updateStoreStatus_(false, 'This browser does not support Shaka.');
+  }
+
+
   app.video_ =
       /** @type {!HTMLVideoElement} */ (document.getElementById('video'));
   app.videoResDebug_ = document.getElementById('videoResDebug');
@@ -279,10 +285,6 @@ app.init = function() {
     app.resetCycleState_('audioTracks', 'cycleAudio', false);
   });
 
-  if (!shaka.player.Player.isBrowserSupported()) {
-    alert('This browser does not support Shaka. \n\nPlease try Google Chrome.');
-    app.updateStoreStatus_(false, 'This browser does not support Shaka.');
-  }
 };
 
 
