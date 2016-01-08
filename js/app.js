@@ -159,7 +159,11 @@ app.init = function() {
   document.getElementById('mpdList').value =
       'assets/car_cenc-20120827-manifest.mpd';
 
-  shaka.polyfill.installAll();
+  try {
+    shaka.polyfill.installAll();
+  } catch (e) {
+    console.log('Error installing polyfills: ', e);
+  }
 
   if (!shaka.player.Player.isBrowserSupported()) {
     alert('This browser does not support Shaka. \n\nPlease try Google Chrome.');
