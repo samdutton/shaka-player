@@ -259,3 +259,7 @@
     min-width: 24px;
   }
 }
+/* turn off tooltips for the seekBar on IE */
+#seekBar::-ms-tooltip {
+  display: none;
+}
